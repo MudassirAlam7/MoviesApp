@@ -1,0 +1,117 @@
+/* Make sure your page content starts below the fixed navbar */
+.movies-page {
+  padding: 100px 6% 40px 6%; /* top padding to avoid navbar overlap */
+  background-color: #141414;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+
+.movies-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 cards per row */
+  gap: 15px;
+}
+
+.movie-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #222;
+
+}
+
+
+.movie-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+.movie-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.movie-info p {
+  font-size: 0.85rem;
+  color: #ccc;
+  max-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* ✅ Responsive Breakpoints */
+
+/* Tablets - Medium screens */
+@media (max-width: 1024px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .movie-card img {
+    height: 160px;
+  }
+
+  .movie-info h4 {
+    font-size: 1rem;
+  }
+
+  .movie-info p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movie-card img {
+    height: 140px;
+  }
+
+  .movies-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .movies-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+
+  .movie-info h4 {
+    font-size: 1rem;
+  }
+
+  .movie-info p {
+    font-size: 0.8rem;
+  }
+
+  .movies-page {
+    padding: 80px 5% 30px;
+  }
+
+  .movies-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}

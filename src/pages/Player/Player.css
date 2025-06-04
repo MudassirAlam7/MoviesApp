@@ -1,0 +1,64 @@
+.player{
+     position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+   
+}
+.player img{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    cursor: pointer;
+    padding-top: 60px;
+}
+.player iframe{
+    border-radius: 10px;
+}
+.player-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .player iframe {
+    width: 95vw;
+    height: 53.44vw; /* 95 * 9/16 */
+  }
+  
+  .player-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 95%;
+  }
+  
+  .player img {
+    width: 40px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .player iframe {
+    width: 100vw;
+    height: 56.25vw; /* full width 16:9 */
+  }
+  
+  .player-info {
+    width: 100%;
+  }
+  
+  .player img {
+    width: 35px;
+    top: 10px;
+    left: 10px;
+  }
+}

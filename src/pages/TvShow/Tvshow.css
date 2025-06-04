@@ -1,0 +1,108 @@
+.tvshows-page {
+  padding: 100px 6% 40px;
+  color: #fff;
+  background-color: #141414;
+  min-height: 100vh;
+}
+
+.tvshows-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  
+}
+.tvshows-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+.tvshow-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  height: 280px; /* 🔥 Increased height */
+  width: 100%;   /* Full width of column */
+}
+
+.tvshow-card:hover {
+  transform: scale(1.05);
+}
+
+.tvshow-card img {
+  width: 100%;
+  height: 70%; /* 🔥 Takes 70% of the card */
+  object-fit: cover;
+}
+
+.tvshow-info {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.tvshow-info h4 {
+  margin: 0;
+  font-size: 15px;
+  text-decoration: none;
+  text-decoration-line: none;
+  color: #fff;
+}
+
+.tvshow-info p {
+  font-size: 12px;
+  color: #aaa;
+}
+/* Responsive Grid Layout */
+@media (max-width: 1200px) {
+  .tvshows-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .tvshows-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tvshows-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tvshows-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .tvshow-card {
+    height: 250px;
+  }
+
+  .tvshows-title {
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tvshows-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tvshows-page {
+    padding: 80px 4% 30px;
+  }
+
+  .tvshow-card {
+    height: 220px;
+  }
+
+  .tvshow-info h4 {
+    font-size: 14px;
+  }
+
+  .tvshow-info p {
+    font-size: 11px;
+  }
+}
