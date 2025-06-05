@@ -26,10 +26,12 @@ const App = () => {
       }
     })
   }, [])
+  const hideLayout = location.pathname === '/login'
   return (
     <div>
       <ToastContainer theme='dark'/>
-      <Navbar/>
+       {!hideLayout && <Navbar />}
+     
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
@@ -37,7 +39,7 @@ const App = () => {
         <Route path='/movies' element={<Movie/>}/>
         <Route path='/player/:id' element = {<Player/>}/>
       </Routes> 
-      <Footer/>
+      {!hideLayout && <Footer />}
     </div>
   )
 }
