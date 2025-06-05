@@ -12,7 +12,8 @@ const TVShow = () => {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_MOVIES_KEY}`
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}` 
+  
   }
 };
   useEffect(() => {
@@ -21,6 +22,9 @@ const TVShow = () => {
   .then(res => setShows(res.results))
   .catch(err => console.error(err));
   }, []);
+
+  
+  
 
   return (
     <div className="tvshows-page">
