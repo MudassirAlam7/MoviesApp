@@ -34,7 +34,6 @@ const Navbar = () => {
           <li onClick={() => { navigate('/tvshow'); setIsMenuOpen(false) }}>Tv Shows</li>
           <li onClick={() => { navigate('/movies'); setIsMenuOpen(false) }}>Movies</li>
           <li>News & Popular</li>
-          <li>My List</li>
           <li>Browse by Languages</li>
         </ul>
       </div>
