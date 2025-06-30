@@ -10,6 +10,8 @@ import TvShow from './pages/TvShow/TvShow'
 import Navbar from './components/Navbar/Navbar'
 import Movie from './pages/Movies/Movies'
 import Footer from './components/Footer/Footer'
+import Search from './pages/search/search'
+import News from './pages/news/News'
 
 const App = () => {
   const navigate = useNavigate()
@@ -38,6 +40,8 @@ const App = () => {
         <Route path='/tvshow' element= {<TvShow/>}/>
         <Route path='/movies' element={<Movie/>}/>
         <Route path='/player/:id' element = {<Player/>}/>
+        <Route path='/search/:query' element = {<Search/>}/>
+        <Route path='/news' element = {<News/>}/>
       </Routes> 
       {!hideLayout && <Footer />}
     </div>

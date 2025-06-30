@@ -46,6 +46,7 @@ const TitleCards = ({ title, category }) => {
           </Link>
         ))}
       </div>
+      {!apiData.length && <p>Loading...</p>}
     </div>
   );
 };

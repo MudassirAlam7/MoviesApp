@@ -16,6 +16,7 @@
   gap: 20px;
 }
 .tvshow-card {
+  text-decoration: none;
   background-color: #1f1f1f;
   border-radius: 10px;
   overflow: hidden;
