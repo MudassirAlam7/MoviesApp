@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './News.css';
+import './news.css';
 
 const fallbackImg = 'https://via.placeholder.com/800x450?text=No+Image';
 
