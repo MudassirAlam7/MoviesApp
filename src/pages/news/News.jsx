@@ -5,24 +5,30 @@ const fallbackImg = 'https://via.placeholder.com/800x450?text=No+Image';
 
 const News = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     fetch(
-      'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=f3b47242a0664c9da788643ae6bc26fc'
+      `https://gnews.io/api/v4/top-headlines?topic=entertainment&lang=en&apikey=${import.meta.env.VITE_NEWS_KEY}`
     )
       .then((res) => res.json())
-      .then((res) => setData(res.articles))
+      .then((res) => {
+        setData(res.articles)
+        setLoading(false)
+      })
       .catch((err) => console.error(err));
   }, []);
 
   return (
     <div className="news-wrapper">
       <h1>Entertainment News</h1>
+      {loading && <div>Loading...</div>}
       <ul className="news-scroll">
         {data.map((item, index) => (
           <li className="news-card" key={index}>
             <img
-              src={item.urlToImage || fallbackImg}
+              src={item.image || fallbackImg}
               alt={item.title}
               onError={(e) => (e.target.src = fallbackImg)}
             />
