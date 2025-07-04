@@ -108,6 +108,35 @@
 .hamburger img {
   width: 24px;
 }
+.dropdown-parent {
+  position: relative;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1f1f1f;
+  padding: 10px 0;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  min-width: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.lang-dropdown li {
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.lang-dropdown li:hover {
+  background: #333;
+}
 
 /* ===== Responsive Styles ===== */
 @media (max-width: 1024px) {
@@ -125,9 +154,10 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 50px;
     left: 0;
-    background-color: rgba(20, 20, 20, 0.95);
+    overflow-y: auto;
+    background-color: #141414;
     width: 100%;
     padding: 20px 6%;
     z-index: 99;
@@ -180,5 +210,23 @@
 
   .navbar-right .profile {
     width: 26px;
+  }
+}
+/* Mobile-specific dropdown fixes */
+@media (max-width: 768px) {
+  .dropdown-parent {
+    position: relative;
+  }
+
+  .lang-dropdown {
+    position: relative; /* Instead of absolute */
+    top: 150;
+    left: 0;
+    background: #1f1f1f;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    box-shadow: none;
+    border: 1px solid #333;
   }
 }

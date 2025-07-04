@@ -15,6 +15,8 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [showLang, setShowLang] = useState(false);
+  const[langCode, setLangCode] = useState('en');
   const ref = useRef()
 
   // ✅ Fix: Use useEffect for safe DOM access
@@ -49,7 +51,22 @@ const Navbar = () => {
       setSearchQuery('')
     }
   }
+  const getLanguageName = (code) => {
+    const names = {
+      en: "English", hi: "Hindi", ta: "Tamil", te: "Telugu", bn: "Bengali",
+      ko: "Korean", es: "Spanish", fr: "French", ja: "Japanese", de: "German"
+    };
+    return names[code] || code;
+  };
+  function handleLangCode(code){
+      setLangCode(code);
+      setShowLang(false); 
+      navigate(`/language/${code}`);
+  }
+  const isMobile = window.innerWidth <= 768;
+  
 
+  
   return (
     <div ref={ref} className='navbar'>
       <div className='navbar-left'>
@@ -59,7 +76,31 @@ const Navbar = () => {
           <li onClick={() => { navigate('/tvshow'); setIsMenuOpen(false) }}>Tv Shows</li>
           <li onClick={() => { navigate('/movies'); setIsMenuOpen(false) }}>Movies</li>
           <li onClick={() => { navigate('/news'); setIsMenuOpen(false) }}>News & Popular</li>
-          <li>Browse by Languages</li>
+          <li
+  className="dropdown-parent"
+  onMouseEnter={!isMobile ? () => setShowLang(true) : undefined}
+  onMouseLeave={!isMobile ? () => setShowLang(false) : undefined}
+  onClick={isMobile ? () => setShowLang(prev => !prev) : undefined}
+>
+  <span>Browse by Languages</span>
+  {showLang && (
+    <ul className="lang-dropdown">
+      {["en", "hi", "ta", "te", "bn", "ko", "es", "fr", "ja", "de"].map((langCode) => (
+        <li
+          key={langCode}
+          onClick={() => {
+            handleLangCode(langCode);
+            setShowLang(false);
+          }}
+        >
+          {getLanguageName(langCode)}
+        </li>
+      ))}
+    </ul>
+  )}
+</li>
+
+
         </ul>
       </div>
       <div className='navbar-right'>

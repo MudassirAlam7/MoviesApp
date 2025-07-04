@@ -12,6 +12,7 @@ import Movie from './pages/Movies/Movies'
 import Footer from './components/Footer/Footer'
 import Search from './pages/Search/Search'
 import News from './pages/news/News'
+import BrowseByLan from './pages/language/BrowseByLan'
 
 const App = () => {
   const navigate = useNavigate()
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/player/:id' element = {<Player/>}/>
         <Route path='/search/:query' element = {<Search/>}/>
         <Route path='/news' element = {<News/>}/>
+        <Route path='/language/:langCode' element = {<BrowseByLan/>} />
       </Routes> 
       {!hideLayout && <Footer />}
     </div>
