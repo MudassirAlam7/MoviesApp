@@ -60,7 +60,7 @@ const Navbar = () => {
   };
   function handleLangCode(code){
       setLangCode(code);
-      setShowLang(false); 
+    
       navigate(`/language/${code}`);
   }
   const isMobile = window.innerWidth <= 768;
@@ -80,20 +80,31 @@ const Navbar = () => {
   className="dropdown-parent"
   onMouseEnter={!isMobile ? () => setShowLang(true) : undefined}
   onMouseLeave={!isMobile ? () => setShowLang(false) : undefined}
-  onClick={isMobile ? () => setShowLang(prev => !prev) : undefined}
+  onClick={()=> {
+    if (isMobile) {
+      setShowLang(!showLang);
+    }
+    else {
+      setShowLang(true);
+    }
+  }}
 >
   <span>Browse by Languages</span>
   {showLang && (
     <ul className="lang-dropdown">
-      {["en", "hi", "ta", "te", "bn", "ko", "es", "fr", "ja", "de"].map((langCode) => (
+      {["en", "hi", "ta", "te", "bn", "ko", "es", "fr", "ja", "de"].map((code) => (
         <li
-          key={langCode}
+          key={code}
           onClick={() => {
-            handleLangCode(langCode);
+            console.log("clicked", code);
+            
+            handleLangCode(code);
+            setIsMenuOpen(false);
             setShowLang(false);
+
           }}
         >
-          {getLanguageName(langCode)}
+          {getLanguageName(code)}
         </li>
       ))}
     </ul>
