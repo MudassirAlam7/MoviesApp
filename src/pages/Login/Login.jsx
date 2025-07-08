@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Login.css"
 import logo from '../../assets/logo.png'
+import whatsapp from '../../assets/whatsapp.png'
 import { login, signup } from '../../firebase'
 
 const Login = () => {
@@ -22,7 +23,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-       <img src= {logo} alt="" className='login-logo' />
+       {/* <img src= {whatsapp} alt="" className='login-logo' /> */}
        <div className="login-form">
          <h1>{signIn}</h1>
          <form >
