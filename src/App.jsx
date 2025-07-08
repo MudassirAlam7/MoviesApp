@@ -25,18 +25,20 @@ const App = () => {
   });
 
   useEffect(() => {
-    if (disclaimerAccepted) {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          console.log('Logged in');
-          navigate('/');
-        } else {
-          console.log('Logged out');
-          navigate('/login');
-        }
-      });
-    }
-  }, [disclaimerAccepted, navigate]);
+    if (!disclaimerAccepted) return;
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const path = location.pathname;
+
+      if (user && path === '/login') {
+        navigate('/');
+      } else if (!user && path !== '/login') {
+        navigate('/login');
+      }
+    });
+
+    return () => unsubscribe();
+  }, [disclaimerAccepted, navigate, location.pathname]);
 
   const hideLayout = location.pathname === '/login';
 
