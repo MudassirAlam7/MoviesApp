@@ -23,7 +23,7 @@ const Home = () => {
     fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)
       .then((res) => res.json())
       .then((data) => {
-        setHeroMovies(data.results); // Top 5 upcoming
+        setHeroMovies(data.results);
       })
       .catch((err) => console.error(err));
   }, []);
